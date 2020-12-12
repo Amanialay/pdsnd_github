@@ -1,15 +1,15 @@
 ### Date created
-Include the date you created this project and README file.
+project was created 7/11/2020
+README file was created 15/08/2018
 
 ### Project Title
-Replace the Project Title
+Bike Share Data
 
 ### Description
-Describe what your project is about and what it does
+it is a data about bike share system in Chicago, NYC, and Washington
+we can import and compute some statistics related to trip times, stations and users
 
 ### Files used
-Include the files used
+csv. files for the three cities were used to import the data
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
