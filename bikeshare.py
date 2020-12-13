@@ -20,30 +20,24 @@ def get_filters():
     print('Hello! Let\'s explore some US bikeshare data!')
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     city_list = ['chicago', 'new york city', 'washington']
-    city = input('Please enter a city from the list: chicago, new york city, washington.\n ')
-    city = city.lower()
+    city = input('Please enter a city from the list: chicago, new york city, washington.\n ').lower()
     while city not in city_list:
-        city = input('Sorry you have to choose city from the list: chicago, new york city, washington.\n ')
-        city = city.lower()
+        city = input('Sorry you have to choose city from the list: chicago, new york city, washington.\n ').lower()
         if city in city_list:
             break
 
 
     # TO DO: get user input for month (all, january, february, ... , june)
-    month = input('Please select months from january to june or all.\n ')
-    month = month.lower()
+    month = input('Please select months from january to june or all.\n ').lower()
     while month not in month_list:
-        month = input('Sorry you have to choose from the first six months of the year or all.\n ')
-        month = month.lower()
+        month = input('Sorry you have to choose from the first six months of the year or all.\n ').lower()
         if month in month_list:
-            break  
+            break
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
-    day = input('Please select any days from monday to sunday or all.\n ')
-    day = day.lower()
+    day = input('Please select any days from monday to sunday or all.\n ').lower()
     while day not in days_list:
-        day = input('Sorry you have to choose from days of the week or all.\n ')
-        day = day.lower()
+        day = input('Sorry you have to choose from days of the week or all.\n ').lower()
         if day in days_list:
             break
 
@@ -64,23 +58,23 @@ def load_data(city, month, day):
     """
     #read city csv file
     df = pd.read_csv(CITY_DATA[city])
-    #to convert object to datetime 
+    #to convert object to datetime
     df['Start Time'] =pd.to_datetime(df['Start Time'])
     #create month column
-    df['month'] = df['Start Time'].dt.month 
+    df['month'] = df['Start Time'].dt.month
     #create day column
-    df['day'] = df['Start Time'].dt.dayofweek 
+    df['day'] = df['Start Time'].dt.dayofweek
     #create hour column
     df['hour'] = df['Start Time'].dt.hour
-    
+
     if month != 'all':
         #filter by month
         df = df[df['month'] == month_list.index(month)]
-        
+
     if day != 'all':
         #filter by day
         df = df[df['day'] == days_list.index(day)-1]
-        
+
     return df
 
 
@@ -97,12 +91,12 @@ def time_stats(df):
     # TO DO: display the most common day of week
     travel_day = df['day'].mode().iloc[0]
     print("day {} found as the most common day of week for travel".format(travel_day))
-    
+
     # TO DO: display the most common start hour
     start_hour = df['hour'].mode().iloc[0]
     print("{}: is the most common start hour for travel".format(start_hour))
-    
-    
+
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -170,27 +164,27 @@ def user_stats(df):
 
         # TO DO: Display earliest, most recent, and most common year of birth
         birthyear = df['Birth Year']
-    
+
         earliest_birth = birthyear.min()
         print("the earliest birthday year is : {}".format(earliest_birth))
         recent_birth = birthyear.max()
         print("the most recent birthday year is : {}".format(recent_birth))
         common_birth = birthyear.mode()[0]
         print("the most common birthday year is : {}".format(common_birth))
-    
+
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 def row_data(df):
     print(df.head(5))
-    line = 0 
+    line = 0
     while True:
-        next_lines = input('\nWould you like to see the next 5 lines ? Enter yes or no.\n')
+        next_lines = input('\nWould you like to get the followed five rows of data ? Enter yes or no.\n')
         if next_lines.lower() != 'yes':
             break
         else:
-            line = line + 5 
+            line = line + 5
             print(df.iloc[line:line+5])
 
 def main():
@@ -211,7 +205,7 @@ def main():
 if __name__ == "__main__":
 	main()
 
-# the below links were used as a reference 
+# the below links were used as a reference
 #https://towardsdatascience.com/working-with-datetime-in-pandas-dataframe-663f7af6c587
 #https://www.geeksforgeeks.org/how-to-display-most-frequent-value-in-a-pandas-series/
 #https://stackoverflow.com/questions/21082671/find-and-select-the-most-frequent-data-of-column-in-pandas-dataframe
