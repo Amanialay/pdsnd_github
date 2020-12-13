@@ -180,7 +180,7 @@ def row_data(df):
     print(df.head(5))
     line = 0
     while True:
-        next_lines = input('\nWould you like to see the next 5 lines ? Enter yes or no.\n')
+        next_lines = input('\nWould you like to get the followed five rows of data ? Enter yes or no.\n')
         if next_lines.lower() != 'yes':
             break
         else:
