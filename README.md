@@ -12,6 +12,7 @@ we can import and compute some statistics related to trip times, stations and us
 ### Files used
 csv. files for the three cities were used to import the data
 python file used to write codes that answer different questions about bikeshare data
+- mentioned in .gitignore file
 
 ### Credits
 the below link was used as a reference to filter the data by month and day
